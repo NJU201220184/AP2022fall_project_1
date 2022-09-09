@@ -23,5 +23,8 @@ void User::logout() {
 void User::select_function() {
     cout<<"user functions:"<<endl;
     string command;
-
+    cin>>command;
+    while(command != "6"){
+        if(command == "1") cout<<"Function 1"<<endl;
+    }
 }
