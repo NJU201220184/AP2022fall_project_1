@@ -61,6 +61,12 @@ build CMakeFiles/AP_project_1.dir/User.cpp.obj: CXX_COMPILER__AP_project_1_Debug
   OBJECT_DIR = CMakeFiles\AP_project_1.dir
   OBJECT_FILE_DIR = CMakeFiles\AP_project_1.dir
 
+build CMakeFiles/AP_project_1.dir/Admin.cpp.obj: CXX_COMPILER__AP_project_1_Debug D$:/AP_project_1/Admin.cpp || cmake_object_order_depends_target_AP_project_1
+  DEP_FILE = CMakeFiles\AP_project_1.dir\Admin.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\AP_project_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\AP_project_1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AP_project_1
@@ -69,7 +75,7 @@ build CMakeFiles/AP_project_1.dir/User.cpp.obj: CXX_COMPILER__AP_project_1_Debug
 #############################################
 # Link the executable AP_project_1.exe
 
-build AP_project_1.exe: CXX_EXECUTABLE_LINKER__AP_project_1_Debug CMakeFiles/AP_project_1.dir/main.cpp.obj CMakeFiles/AP_project_1.dir/User.cpp.obj
+build AP_project_1.exe: CXX_EXECUTABLE_LINKER__AP_project_1_Debug CMakeFiles/AP_project_1.dir/main.cpp.obj CMakeFiles/AP_project_1.dir/User.cpp.obj CMakeFiles/AP_project_1.dir/Admin.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\AP_project_1.dir
