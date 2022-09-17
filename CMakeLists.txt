@@ -3,4 +3,4 @@ project(AP_project_1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AP_project_1 main.cpp User.cpp User.h Admin.cpp Admin.h menu.h)
+add_executable(AP_project_1 main.cpp User.cpp User.h Admin.cpp Admin.h menu.h Commodity.cpp Commodity.h Order.cpp Order.h)

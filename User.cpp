@@ -12,19 +12,63 @@ void User::seller() {
 
 }
 
-void User::info() {
-
-}
-
-void User::logout() {
-
+void User::change_info() {
+    cout<<"Please input the operation you want :"<<endl;
+    cout<<"============================================================================================="<<endl;
+    cout<<"1.Change password 2.Change phoneNumber 3.Change address 4.Recharge 5.Return to user main menu"<<endl;
+    cout<<"============================================================================================="<<endl;
+    cout<<endl;
+    cout<<"Please input a command:";
+    string command;
+    cin>>command;
+    while(command != "5"){
+        if(command == "1") {}
+        else if(command == "2") {}
+        else if(command == "3") {}
+        else if(command == "4") {}
+        else cout<<"Unknown command, please try again..."<<endl<<endl;
+        cout<<"Please input the operation you want :"<<endl;
+        cout<<"============================================================================================="<<endl;
+        cout<<"1.Change password 2.Change phoneNumber 3.Change address 4.Recharge 5.Return to user main menu"<<endl;
+        cout<<"============================================================================================="<<endl;
+        cout<<endl;
+        cout<<"Please input a command:";
+        cin>>command;
+    }
+    cout<<"Return to User Main Menu"<<endl<<endl;
 }
 
 void User::select_function() {
-    cout<<"user functions:"<<endl;
+    cout<<"======================================================="<<endl;
+    cout<<"1.Buyer Login 2.Seller Login 3.Personal Center 4.Log out"<<endl;
+    cout<<"======================================================="<<endl;
+    cout<<endl;
+    cout<<"Please input a command:";
     string command;
     cin>>command;
-    while(command != "6"){
-        if(command == "1") cout<<"Function 1"<<endl;
+    while(command != "4"){
+        if(command == "1") buyer();
+        else if(command == "2") seller();
+        else if(command == "3") change_info();
+        else cout<<"Unknown command, please try again..."<<endl<<endl;
+        cout<<"======================================================="<<endl;
+        cout<<"1.Buyer Login 2.Seller Login 3.Personal Center 4.Log out"<<endl;
+        cout<<"======================================================="<<endl;
+        cout<<endl;
+        cout<<"Please input a command:";
+        cin>>command;
     }
+    cout<<"Log out"<<endl<<endl;
+}
+
+User::User(char* str0, char* str1, char* str2, char* str3,
+                   char* str4, char* str5, char* str6)
+{
+    userID = str0;
+    username = str1;
+    password = str2;
+    phoneNumber = str3;
+    address = str4;
+    balance = atof(str5);
+    userState = str6;
 }

@@ -1,0 +1,2 @@
+userID,username,password,phoneNumber,address,balance,userState
+U001,Steve,123456,13252815793,Queen,100.0,active

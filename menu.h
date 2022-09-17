@@ -22,9 +22,7 @@ void main_menu(){
     string command;
     cin>>command;
     while(command != "4"){
-        if(command == "1") {
-            admin.admin_login();
-        }
+        if(command == "1") admin.admin_login();
         else if(command == "2") cout<<"User Signup"<<endl<<endl; //用户注册
         else if(command == "3") cout<<"User Login"<<endl<<endl; //用户登录
         else cout<<"Unknown command, please try again..."<<endl<<endl; //未识别命令
@@ -35,6 +33,6 @@ void main_menu(){
         cout<<"Please input a command:";
         cin>>command;
     }
-    cout<<"System killed"<<endl;
+    cout<<"System Quit"<<endl;
 }
 
