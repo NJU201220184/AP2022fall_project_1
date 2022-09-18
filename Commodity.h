@@ -19,7 +19,15 @@ private:
     string addedDate;
     string state;
 public:
-    Commodity(string _commodityID, string _commodityName, float _price, int _number, string _sellerID, string _addedDate, string _state);
+    Commodity();
+    Commodity(char* _commodityID, char* _commodityName, char* _price, char* _number,
+              char* _description, char* _sellerID, char* _addedDate, char* _state);
+    void print_info();
+};
+
+struct commodity_node{
+    Commodity cd;
+    commodity_node* next;
 };
 
 

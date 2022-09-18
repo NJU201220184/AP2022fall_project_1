@@ -8,11 +8,19 @@ using namespace std;
 
 
 class Order {
-    string orderID,commodityID,unitPrice,number,date,sellerID,buyerID;
+    string orderID,commodityID,date,sellerID,buyerID;
+    float unitPrice;
+    int number;
 public:
-    Order(string _orderID, string _commodityID, float _unitPrice,
-          int _number,string _date, string _sellerID, string _buyerID);
+    Order(char* _orderID, char* _commodityID, char* _unitPrice,
+          char* _number,char* _date, char* _sellerID, char* _buyerID);
+    Order();
+    void print_info();
 };
 
+struct order_node{
+    Order order;
+    order_node* next;
+};
 
 #endif //AP_PROJECT_1_ORDER_H

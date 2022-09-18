@@ -3,10 +3,7 @@
 //
 
 #include "Admin.h"
-
-void Admin::show_all_commodities() {
-
-}
+#include <iomanip>
 
 void Admin::admin_menu() {
     cout<<"========================================================================================================================"<<endl;
@@ -33,8 +30,24 @@ void Admin::admin_menu() {
     }
 }
 
-void Admin::search_commodity() {
+void Admin::show_all_commodities(commodity_node* cd_list) {
+    commodity_node* iter = cd_list;
+    cout<<setiosflags(ios::left)<<setw(8)<<"commodityID"
+        <<setiosflags(ios::left)<<setw(12)<<"commodityName"
+        <<setiosflags(ios::left)<<setw(8)<<"price"
+        <<setiosflags(ios::left)<<setw(8)<<"number"
+        <<setiosflags(ios::left)<<setw(16)<<"description"
+        <<setiosflags(ios::left)<<setw(8)<<"sellerID"
+        <<setiosflags(ios::left)<<setw(16)<<"addedDate"
+        <<setiosflags(ios::left)<<setw(15)<<"state"<<endl;
+    while(cd_list != nullptr){
+        cd_list->cd.print_info();
+        cd_list = cd_list->next;
+    }
+}
 
+void Admin::search_commodity() {
+    
 }
 
 void Admin::off_shelf_commodity() {

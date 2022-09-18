@@ -4,12 +4,20 @@
 
 #include "User.h"
 
-void User::buyer() {
+User::User() {
 
 }
 
-void User::seller() {
-
+User::User(char* str0, char* str1, char* str2, char* str3,
+           char* str4, char* str5, char* str6)
+{
+    userID = str0;
+    username = str1;
+    password = str2;
+    phoneNumber = str3;
+    address = str4;
+    balance = atof(str5);
+    userState = str6;
 }
 
 void User::change_info() {
@@ -47,8 +55,8 @@ void User::select_function() {
     string command;
     cin>>command;
     while(command != "4"){
-        if(command == "1") buyer();
-        else if(command == "2") seller();
+        if(command == "1") select_function();
+        else if(command == "2") buyer_function();
         else if(command == "3") change_info();
         else cout<<"Unknown command, please try again..."<<endl<<endl;
         cout<<"======================================================="<<endl;
@@ -61,14 +69,16 @@ void User::select_function() {
     cout<<"Log out"<<endl<<endl;
 }
 
-User::User(char* str0, char* str1, char* str2, char* str3,
-                   char* str4, char* str5, char* str6)
-{
-    userID = str0;
-    username = str1;
-    password = str2;
-    phoneNumber = str3;
-    address = str4;
-    balance = atof(str5);
-    userState = str6;
+void User::print_info() {
+    cout<<userID<<'\t'<<username<<'\t'<<phoneNumber<<'\t'<<address<<'\t'<<balance<<'\t'<<userState<<'\n';
 }
+
+void User::seller_function() {
+
+}
+
+void User::buyer_function() {
+
+}
+
+
