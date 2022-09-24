@@ -23,6 +23,11 @@ public:
     Commodity(char* _commodityID, char* _commodityName, char* _price, char* _number,
               char* _description, char* _sellerID, char* _addedDate, char* _state);
     void print_info();
+    string name();
+    string _state();
+    string _sellerID();
+    void change_state();
+    string
 };
 
 struct commodity_node{

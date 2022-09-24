@@ -21,14 +21,30 @@ Commodity::Commodity(char* _commodityID, char* _commodityName, char* _price, cha
 }
 
 void Commodity::print_info() {
-    cout<<setiosflags(ios::left)<<setw(8)<<commodityID
-    <<setiosflags(ios::left)<<setw(12)<<commodityName
+    cout<<setiosflags(ios::left)<<setw(12)<<commodityID
+    <<setiosflags(ios::left)<<setw(15)<<commodityName
     <<setiosflags(ios::left)<<setw(8)<<price
     <<setiosflags(ios::left)<<setw(8)<<number
     <<setiosflags(ios::left)<<setw(16)<<description
-    <<setiosflags(ios::left)<<setw(8)<<sellerID
+    <<setiosflags(ios::left)<<setw(12)<<sellerID
     <<setiosflags(ios::left)<<setw(16)<<addedDate
     <<setiosflags(ios::left)<<setw(15)<<state<<endl;
+}
+
+string Commodity::name() {
+    return std::string(commodityName);
+}
+
+string Commodity::_state() {
+    return std::string(state);
+}
+
+void Commodity::change_state() {
+    state = "out_of_Auction";
+}
+
+string Commodity::_sellerID() {
+    return std::string(sellerID);
 }
 
 

@@ -3,6 +3,7 @@
 //
 
 #include "User.h"
+#include "seller.h"
 
 User::User() {
 

@@ -20,8 +20,7 @@ private:
     string address;
     float balance; //保留一位小数
     string userState;
-    commodity_node* _cd = new commodity_node; //Commodity on sale
-    order_node* _order = new order_node;
+
 public:
     User();
     User(char* str0, char* str1, char* str2, char* str3,

@@ -17,8 +17,8 @@ private:
     string admin_password = "123456";
 public:
     void admin_login();
-    static void admin_menu();
-    void show_all_commodities(commodity_node* cd_list);
+    void admin_menu();
+    void show_all_commodities();
     void search_commodity();
     void off_shelf_commodity();
     void show_all_orders();
