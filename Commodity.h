@@ -24,10 +24,14 @@ public:
               char* _description, char* _sellerID, char* _addedDate, char* _state);
     void print_info();
     string name();
-    string _state();
+    string _commodityID();
+    float _price();
+    int _number();
+    string _description();
     string _sellerID();
+    string _addedDate();
+    string _state();
     void change_state();
-    string
 };
 
 struct commodity_node{

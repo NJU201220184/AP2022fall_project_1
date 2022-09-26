@@ -23,9 +23,37 @@ Order::Order() {
 void Order::print_info() {
     cout<<setiosflags(ios::left)<<setw(8)<<orderID
         <<setiosflags(ios::left)<<setw(12)<<commodityID
-        <<setiosflags(ios::left)<<setw(8)<<unitPrice
+        <<setiosflags(ios::left)<<setw(12)<<unitPrice
         <<setiosflags(ios::left)<<setw(8)<<number
-        <<setiosflags(ios::left)<<setw(16)<<date
+        <<setiosflags(ios::left)<<setw(12)<<date
         <<setiosflags(ios::left)<<setw(8)<<sellerID
-        <<setiosflags(ios::left)<<setw(16)<<buyerID<<endl;
+        <<setiosflags(ios::left)<<setw(8)<<buyerID<<endl;
+}
+
+string Order::_orderID(){
+    return orderID;
+}
+
+string Order::_commodityID(){
+    return commodityID;
+}
+
+string Order::_date(){
+    return date;
+}
+
+string Order::_sellerID(){
+    return sellerID;
+}
+
+string Order::_buyerID(){
+    return buyerID;
+}
+
+float Order::_unitPrice(){
+    return unitPrice;
+}
+
+int Order::_number(){
+    return number;
 }

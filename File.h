@@ -10,8 +10,12 @@
 #include <cstring>
 using namespace std;
 
+string user_file_name = "D:\\AP_project_1\\user.txt";
+string commodity_file_name = "D:\\AP_project_1\\commodity.txt";
+string order_file_name = "D:\\AP_project_1\\order.txt";
+
 //Read Files
-user_node* read_user_data(const string file_name){
+user_node* read_user_data(string file_name) {
     ifstream in;
     in.open(file_name.data());
 
@@ -51,7 +55,7 @@ user_node* read_user_data(const string file_name){
     return user_list_head;
 }
 
-commodity_node* read_commodity_data(const string file_name){
+commodity_node* read_commodity_data(const string& file_name){
     ifstream in;
     in.open(file_name.data());
 
@@ -140,8 +144,53 @@ order_node* read_order_data(const string& order_file_name){
 }
 
 //Write Files
-void write_user_data(user_node* user_list, string file_name){}
+void write_user_data(user_node* user_list, string file_name){
+    ofstream destFile(file_name, ios::out);
+    //写入文件
+    destFile<<"username,"<<"password,"<<"userID,"
+            <<"phoneNumber,"<<"address,"<<"balance,"<<"userState"<<'\n';
+    auto iter = user_list;
+    while(iter){
+        destFile<<iter->user._username()<<','<<iter->user._password()<<','
+                <<iter->user._userID()<<','<<iter->user._phoneNumber()<<','
+                <<iter->user._address()<<','<<iter->user._balance()<<','
+                <<iter->user._userState()<<'\n';
+        iter = iter->next;
+    }
+    destFile.close();
+}
 
-void write_cd_data(commodity_node* cd_list, string file_name){}
+void write_cd_data(commodity_node* cd_list, string file_name){
+    ofstream destFile(file_name, ios::out);
+    //写入文件
+    destFile<<"commodityID,commodityName,price,number,description,sellerID,addedDate,state"<<'\n';
+    auto iter = cd_list;
+    while(iter){
+        destFile<<iter->cd._commodityID()<<','<<iter->cd.name()<<','
+                <<iter->cd._price()<<','<<iter->cd._number()<<','
+                <<iter->cd._description()<<','<<iter->cd._sellerID()<<','
+                <<iter->cd._addedDate()<<','<<iter->cd._state()<<'\n';
+        iter = iter->next;
+    }
+    destFile.close();
+}
 
-void write_order_data(order_node* order_list, string file_name){}
+void write_order_data(order_node* order_list, string file_name){
+    ofstream destFile(file_name, ios::out);
+    //写入文件
+    destFile<<"orderID,commodityID,unitPrice,number,date,sellerID,buyerID"<<'\n';
+    auto iter = order_list;
+    while(iter){
+        destFile<<iter->order._orderID()<<','<<iter->order._commodityID()<<','
+                <<iter->order._unitPrice()<<','<<iter->order._number()<<','
+                <<iter->order._date()<<','<<iter->order._sellerID()<<','
+                <<iter->order._buyerID()<<'\n';
+        iter = iter->next;
+    }
+    destFile.close();
+}
+
+user_node* user_list = read_user_data(user_file_name);
+commodity_node* cd_list = read_commodity_data(commodity_file_name);
+order_node* order_list = read_order_data(order_file_name);
+

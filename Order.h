@@ -16,6 +16,13 @@ public:
           char* _number,char* _date, char* _sellerID, char* _buyerID);
     Order();
     void print_info();
+    string _orderID();
+    string _commodityID();
+    string _date();
+    string _sellerID();
+    string _buyerID();
+    float _unitPrice();
+    int _number();
 };
 
 struct order_node{

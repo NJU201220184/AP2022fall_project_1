@@ -11,7 +11,7 @@
 #include "Commodity.h"
 #include "Order.h"
 
-void List_item(commodity_node* cd_node){
+/*void List_item(commodity_node* cd_node){
     cout<<"Please input the name of the item: ";
     string name;
     cin>>name;
@@ -36,5 +36,5 @@ void List_item(commodity_node* cd_node){
         }
         iter = temp;
     }
-    /*rewrite the file*/
-}
+}*/
+

@@ -1,3 +1,3 @@
 commodityID,commodityName,price,number,description,sellerID,addedDate,state
-M001,Icon,100.0,10,Item Desc 1,U001,2022-02-15,onAuction
-M002,IceBlock,10.0,10,Item Desc 2,U001,2022-02-15,onAuction
+M001,Icon,100,10,Item Desc 1,U001,2022-02-15,out_of_Auction
+M002,IceBlock,10,10,Item Desc 2,U001,2022-02-15,onAuction

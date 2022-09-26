@@ -30,6 +30,21 @@ public:
     void buyer_function();
     void change_info(); //Change info & Recharge
     void print_info(); //Debug & Admin
+    void change_state();
+    void buyer_show_all_commodities(commodity_node* cd_list); //buyer
+    void seller_show_all_commodities(commodity_node* cd_list); //seller
+    void buyer_show_orders(order_node* order_list); //buyer
+    void seller_show_orders(order_node* order_list); //seller
+    void search_commodity(commodity_node* cd_list); //buyer
+    void seller_add_commodity(commodity_node* cd_list); //seller
+    void buyer_auction();
+    string _username();
+    string _password();
+    string _userID();
+    string _phoneNumber();
+    string _address();
+    float _balance();
+    string _userState();
 };
 
 struct user_node{

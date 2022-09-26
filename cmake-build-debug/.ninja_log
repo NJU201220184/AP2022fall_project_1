@@ -1,7 +1,7 @@
 # ninja log v5
-39	691	6857227513360420	CMakeFiles/AP_project_1.dir/User.cpp.obj	dcccdf631115afc3
-17	530	6852037435871160	CMakeFiles/AP_project_1.dir/Commodity.cpp.obj	78a14a628aa54189
-2	694	6857227513406120	CMakeFiles/AP_project_1.dir/main.cpp.obj	d08047ef9fb609a4
-434	529	6857232131113154	AP_project_1.exe	bb8695783758581f
-3	434	6857232130203480	CMakeFiles/AP_project_1.dir/Admin.cpp.obj	f1eba5b0758e17e1
-15	722	6851880188727359	CMakeFiles/AP_project_1.dir/Order.cpp.obj	1c787a7c80b5aba
+7	794	6858909336790562	CMakeFiles/AP_project_1.dir/User.cpp.obj	dcccdf631115afc3
+13	743	6858909336246014	CMakeFiles/AP_project_1.dir/Commodity.cpp.obj	78a14a628aa54189
+3	702	6858909335798255	CMakeFiles/AP_project_1.dir/main.cpp.obj	d08047ef9fb609a4
+903	1415	6858909342940343	AP_project_1.exe	bb8695783758581f
+10	902	6858909337851450	CMakeFiles/AP_project_1.dir/Admin.cpp.obj	f1eba5b0758e17e1
+18	748	6858909336316152	CMakeFiles/AP_project_1.dir/Order.cpp.obj	1c787a7c80b5aba

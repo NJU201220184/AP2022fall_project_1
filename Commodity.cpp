@@ -35,16 +35,36 @@ string Commodity::name() {
     return std::string(commodityName);
 }
 
-string Commodity::_state() {
-    return std::string(state);
-}
-
 void Commodity::change_state() {
     state = "out_of_Auction";
 }
 
 string Commodity::_sellerID() {
     return std::string(sellerID);
+}
+
+string Commodity::_commodityID() {
+    return std::string(commodityID);
+}
+
+float Commodity::_price() {
+    return price;
+}
+
+int Commodity::_number() {
+    return number;
+}
+
+string Commodity::_description() {
+    return std::string(description);
+}
+
+string Commodity::_addedDate() {
+    return std::string(addedDate);
+}
+
+string Commodity::_state() {
+    return std::string(state);
 }
 
 

@@ -18,12 +18,12 @@ private:
 public:
     void admin_login();
     void admin_menu();
-    void show_all_commodities();
-    void search_commodity();
-    void off_shelf_commodity();
-    void show_all_orders();
-    void show_all_users();
-    void block_user();
+    void show_all_commodities(commodity_node* cd_list);
+    void search_commodity(commodity_node* cd_list);
+    static void off_shelf_commodity(commodity_node* cd_list);
+    static void show_all_orders(order_node* order_list);
+    static void show_all_users(user_node* user_list);
+    void block_user(user_node* user_list);
 };
 
 
