@@ -1,11 +1,12 @@
 //
 // Created by 28495 on 2022/9/17.
 //
-#include <iostream>
-using namespace std;
+
 #ifndef AP_PROJECT_1_ORDER_H
 #define AP_PROJECT_1_ORDER_H
 
+#include <iostream>
+using namespace std;
 
 class Order {
     string orderID,commodityID,date,sellerID,buyerID;
@@ -23,11 +24,6 @@ public:
     string _buyerID();
     float _unitPrice();
     int _number();
-};
-
-struct order_node{
-    Order order;
-    order_node* next;
 };
 
 #endif //AP_PROJECT_1_ORDER_H

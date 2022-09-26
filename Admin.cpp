@@ -6,6 +6,13 @@
 #include "File.h"
 #include <iomanip>
 
+extern string user_file_name;
+extern string commodity_file_name;
+extern string order_file_name;
+
+extern user_node* user_list;
+extern commodity_node* cd_list;
+extern order_node* order_list;
 
 void Admin::admin_menu() {
     cout<<"========================================================================================================================"<<endl;
@@ -16,11 +23,11 @@ void Admin::admin_menu() {
     string command;
     cin>>command;
     while(command != "7"){
-        if(command == "1") show_all_commodities(cd_list);
-        else if(command == "2") search_commodity(cd_list);
-        else if(command == "3") off_shelf_commodity(cd_list);
-        else if(command == "4") show_all_orders(order_list);
-        else if(command == "5") show_all_users(user_list);
+        if(command == "1") show_all_commodities();
+        else if(command == "2") search_commodity();
+        else if(command == "3") off_shelf_commodity();
+        else if(command == "4") show_all_orders();
+        else if(command == "5") show_all_users();
         else if(command == "6") cout<<"block_user"<<endl<<endl;
         else cout<<"Unknown command, please try again..."<<endl<<endl;
         cout<<"========================================================================================================================"<<endl;
@@ -33,11 +40,11 @@ void Admin::admin_menu() {
     cout<<endl<<"Administrator log out"<<endl<<endl;
 }
 
-void Admin::show_all_commodities(commodity_node* cd_list) {
+void Admin::show_all_commodities() {
     cout<<endl;
     commodity_node* iter = cd_list;
-    cout<<setiosflags(ios::left)<<setw(12)<<"commodityID"
-        <<setiosflags(ios::left)<<setw(15)<<"commodityName"
+    cout<<setiosflags(ios::left)<<setw(8)<<"cdID"
+        <<setiosflags(ios::left)<<setw(15)<<"cdName"
         <<setiosflags(ios::left)<<setw(8)<<"price"
         <<setiosflags(ios::left)<<setw(8)<<"number"
         <<setiosflags(ios::left)<<setw(16)<<"description"
@@ -51,7 +58,7 @@ void Admin::show_all_commodities(commodity_node* cd_list) {
     cout<<endl;
 }
 
-void Admin::search_commodity(commodity_node* cd_list) {
+void Admin::search_commodity() {
     cout<<endl;
     commodity_node* iter = cd_list;
     cout<<"Please input the name of the commodity: ";
@@ -64,8 +71,8 @@ void Admin::search_commodity(commodity_node* cd_list) {
             count++;
             if(count == 1)
             {
-                cout<<setiosflags(ios::left)<<setw(12)<<"commodityID"
-                    <<setiosflags(ios::left)<<setw(15)<<"commodityName"
+                cout<<setiosflags(ios::left)<<setw(8)<<"cdID"
+                    <<setiosflags(ios::left)<<setw(15)<<"cdName"
                     <<setiosflags(ios::left)<<setw(8)<<"price"
                     <<setiosflags(ios::left)<<setw(8)<<"number"
                     <<setiosflags(ios::left)<<setw(16)<<"description"
@@ -82,7 +89,7 @@ void Admin::search_commodity(commodity_node* cd_list) {
     cout<<endl;
 }
 
-void Admin::off_shelf_commodity(commodity_node* cd_list) {
+void Admin::off_shelf_commodity() {
     cout<<endl;
     commodity_node* iter = cd_list;
     cout<<"Please input the name of the commodity: ";
@@ -118,7 +125,7 @@ void Admin::off_shelf_commodity(commodity_node* cd_list) {
     cout<<endl;
 }
 
-void Admin::show_all_orders(order_node* order_list) {
+void Admin::show_all_orders() {
     cout<<endl;
     order_node* iter = order_list;
     cout<<setiosflags(ios::left)<<setw(8)<<"orderID"
@@ -135,7 +142,7 @@ void Admin::show_all_orders(order_node* order_list) {
     cout<<endl;
 }
 
-void Admin::show_all_users(user_node* user_list) {
+void Admin::show_all_users() {
     cout<<endl;
     user_node* iter = user_list;
     cout<<setiosflags(ios::left)<<setw(8)<<"userID"
@@ -150,7 +157,7 @@ void Admin::show_all_users(user_node* user_list) {
     cout<<endl;
 }
 
-void Admin::block_user(user_node* user_list) {
+void Admin::block_user() {
     cout<<endl;
     user_node* iter = user_list;
     cout<<"Please input the name of the commodity: ";

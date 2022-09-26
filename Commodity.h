@@ -1,12 +1,18 @@
 //
 // Created by 28495 on 2022/9/11.
 //
+
 #include<iostream>
 using namespace std;
 
 #ifndef AP_PROJECT_1_COMMODITY_H
 #define AP_PROJECT_1_COMMODITY_H
 
+struct bid_node{
+    string sellerID;
+    float bid;
+    bid_node* next;
+};
 
 class Commodity {
 private:
@@ -18,6 +24,7 @@ private:
     string sellerID;
     string addedDate;
     string state;
+    bid_node* bid_list;
 public:
     Commodity();
     Commodity(char* _commodityID, char* _commodityName, char* _price, char* _number,
@@ -32,12 +39,7 @@ public:
     string _addedDate();
     string _state();
     void change_state();
+    void add_bid(string buyerID, float bid);
 };
-
-struct commodity_node{
-    Commodity cd;
-    commodity_node* next;
-};
-
 
 #endif //AP_PROJECT_1_COMMODITY_H

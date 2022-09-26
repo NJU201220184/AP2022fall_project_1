@@ -2,9 +2,16 @@
 // Created by 28495 on 2022/9/9.
 //
 
-#include "User.h"
-#include "seller.h"
+#include "File.h"
 #include <iomanip>
+
+extern string user_file_name;
+extern string commodity_file_name;
+extern string order_file_name;
+
+extern user_node* user_list;
+extern commodity_node* cd_list;
+extern order_node* order_list;
 
 User::User() {
 
@@ -32,7 +39,22 @@ void User::change_info() {
     string command;
     cin>>command;
     while(command != "5"){
-        if(command == "1") {}
+        if(command == "1") {
+            string new_password;
+            cout<<"Please input new pass_word:";
+            cin>>new_password;
+            cout<<"Please input new pass_word again:";
+            string verification;
+            cin>>verification;
+            while(verification != new_password){
+                cout<<"two passwords are not the same, please try again";
+                cin>>verification;
+            }
+            password = verification;
+            cout<<"Password changed successfully!";
+            write_user_data(user_list, user_file_name);
+            user_list = read_user_data(user_file_name);
+        }
         else if(command == "2") {}
         else if(command == "3") {}
         else if(command == "4") {}
@@ -119,7 +141,7 @@ void User::change_state() {
     userState = "blocked";
 }
 
-void User::buyer_show_all_commodities(commodity_node *cd_list) {
+void User::buyer_show_all_commodities() {
     cout<<endl;
     commodity_node* iter = cd_list;
     cout<<setiosflags(ios::left)<<setw(12)<<"commodityID"
@@ -138,7 +160,7 @@ void User::buyer_show_all_commodities(commodity_node *cd_list) {
     cout<<endl;
 }
 
-void User::seller_show_all_commodities(commodity_node *cd_list) {
+void User::seller_show_all_commodities() {
     cout<<endl;
     commodity_node* iter = cd_list;
     cout<<setiosflags(ios::left)<<setw(12)<<"commodityID"
@@ -158,7 +180,7 @@ void User::seller_show_all_commodities(commodity_node *cd_list) {
     cout<<endl;
 }
 
-void User::buyer_show_orders(order_node *order_list) {
+void User::buyer_show_orders() {
     cout<<endl;
     order_node* iter = order_list;
     cout<<setiosflags(ios::left)<<setw(8)<<"orderID"
@@ -176,7 +198,7 @@ void User::buyer_show_orders(order_node *order_list) {
     cout<<endl;
 }
 
-void User::seller_show_orders(order_node *order_list) {
+void User::seller_show_orders() {
     cout<<endl;
     order_node* iter = order_list;
     cout<<setiosflags(ios::left)<<setw(8)<<"orderID"
@@ -194,7 +216,7 @@ void User::seller_show_orders(order_node *order_list) {
     cout<<endl;
 }
 
-void User::search_commodity(commodity_node *cd_list) {
+void User::search_commodity() {
     cout<<endl;
     commodity_node* iter = cd_list;
     cout<<"Please input the name of the commodity: ";
@@ -228,7 +250,7 @@ void User::search_commodity(commodity_node *cd_list) {
     cout<<endl;
 }
 
-void User::seller_add_commodity(commodity_node *cd_list) {
+void User::seller_add_commodity() {
 
 }
 

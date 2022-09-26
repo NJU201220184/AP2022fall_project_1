@@ -1,15 +1,13 @@
 //
 // Created by 28495 on 2022/9/10.
 //
-#include<iostream>
-#include "Commodity.h"
-#include "User.h"
-#include "Order.h"
-using namespace std;
 
 #ifndef AP_PROJECT_1_ADMIN_H
 #define AP_PROJECT_1_ADMIN_H
 
+#include <string>
+#include <iostream>
+using namespace std;
 
 class Admin {
 private:
@@ -18,12 +16,12 @@ private:
 public:
     void admin_login();
     void admin_menu();
-    void show_all_commodities(commodity_node* cd_list);
-    void search_commodity(commodity_node* cd_list);
-    static void off_shelf_commodity(commodity_node* cd_list);
-    static void show_all_orders(order_node* order_list);
-    static void show_all_users(user_node* user_list);
-    void block_user(user_node* user_list);
+    void show_all_commodities();
+    void search_commodity();
+    static void off_shelf_commodity();
+    static void show_all_orders();
+    static void show_all_users();
+    void block_user();
 };
 
 

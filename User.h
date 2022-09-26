@@ -1,14 +1,13 @@
 //
 // Created by 28495 on 2022/9/9.
 //
-#include<string>
-#include<iostream>
-#include "Commodity.h"
-#include "Order.h"
-using namespace std;
 
 #ifndef AP_PROJECT_1_USER_H
 #define AP_PROJECT_1_USER_H
+
+#include <iostream>
+#include <string>
+using namespace std;
 
 
 class User {
@@ -31,12 +30,12 @@ public:
     void change_info(); //Change info & Recharge
     void print_info(); //Debug & Admin
     void change_state();
-    void buyer_show_all_commodities(commodity_node* cd_list); //buyer
-    void seller_show_all_commodities(commodity_node* cd_list); //seller
-    void buyer_show_orders(order_node* order_list); //buyer
-    void seller_show_orders(order_node* order_list); //seller
-    void search_commodity(commodity_node* cd_list); //buyer
-    void seller_add_commodity(commodity_node* cd_list); //seller
+    void buyer_show_all_commodities(); //buyer
+    void seller_show_all_commodities(); //seller
+    void buyer_show_orders(); //buyer
+    void seller_show_orders(); //seller
+    void search_commodity(); //buyer
+    void seller_add_commodity(); //seller
     void buyer_auction();
     string _username();
     string _password();
@@ -45,11 +44,6 @@ public:
     string _address();
     float _balance();
     string _userState();
-};
-
-struct user_node{
-    User user;
-    user_node* next;
 };
 
 #endif //AP_PROJECT_1_USER_H
