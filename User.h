@@ -17,7 +17,7 @@ private:
     string userID;
     string phoneNumber;
     string address;
-    float balance; //保留一位小数
+    float balance; //保留一位小�?
     string userState;
 
 public:
@@ -31,12 +31,16 @@ public:
     void print_info(); //Debug & Admin
     void change_state();
     void buyer_show_all_commodities(); //buyer
-    void seller_show_all_commodities(); //seller
+    void seller_show_commodities(); //seller
     void buyer_show_orders(); //buyer
     void seller_show_orders(); //seller
     void search_commodity(); //buyer
     void seller_add_commodity(); //seller
+    void off_shelf_commodity(); //seller
+    void change_cd_info();
     void buyer_auction();
+    void buy(float money);
+    void sell(float money);
     string _username();
     string _password();
     string _userID();

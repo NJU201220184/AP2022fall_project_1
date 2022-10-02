@@ -33,6 +33,7 @@ user_node* read_user_data(string file_name) {
             }
 
             auto* user_list_temp = new user_node;
+            user_list_temp->next = nullptr;
             user_list_temp->user = User(config[0], config[1], config[2], config[3], config[4], config[5], config[6]);
             if(user_list_head == nullptr) user_list_head = user_list_tail = user_list_temp;
             else{
@@ -41,7 +42,6 @@ user_node* read_user_data(string file_name) {
             }
         }
     }
-    user_list_head->user.print_info();
     return user_list_head;
 }
 
@@ -73,6 +73,7 @@ commodity_node* read_commodity_data(const string& file_name){
             }
 
             auto* cd_list_temp = new commodity_node;
+            cd_list_temp->next = nullptr;
             cd_list_temp->cd = Commodity(config[0], config[1], config[2], config[3], config[4], config[5], config[6], config[7]);
             if(cd_list_head == nullptr) cd_list_head = cd_list_tail = cd_list_temp;
             else{
@@ -80,11 +81,6 @@ commodity_node* read_commodity_data(const string& file_name){
                 cd_list_tail = cd_list_tail->next;
             }
         }
-    }
-    commodity_node* iter = cd_list_head;
-    while(iter != nullptr){
-        iter->cd.print_info();
-        iter = iter->next;
     }
     return cd_list_head;
 }
@@ -117,6 +113,7 @@ order_node* read_order_data(const string& order_file_name){
             }
 
             auto* order_list_temp = new order_node;
+            order_list_temp->next = nullptr;
             order_list_temp->order = Order(config[0], config[1], config[2], config[3], config[4], config[5], config[6]);
             if(order_list_head == nullptr) order_list_head = order_list_tail = order_list_temp;
             else{
@@ -125,11 +122,6 @@ order_node* read_order_data(const string& order_file_name){
             }
         }
     }
-    auto* iter = order_list_head;
-    while(iter != nullptr){
-        iter->order.print_info();
-        iter = iter->next;
-    }
     return order_list_head;
 }
 
@@ -137,12 +129,12 @@ order_node* read_order_data(const string& order_file_name){
 void write_user_data(user_node* user_list, string file_name){
     ofstream destFile(file_name, ios::out);
     //写入文件
-    destFile<<"username,"<<"password,"<<"userID,"
+    destFile<<"userID,"<<"username,"<<"password,"
             <<"phoneNumber,"<<"address,"<<"balance,"<<"userState"<<'\n';
     auto iter = user_list;
     while(iter){
-        destFile<<iter->user._username()<<','<<iter->user._password()<<','
-                <<iter->user._userID()<<','<<iter->user._phoneNumber()<<','
+        destFile<<iter->user._userID()<<','<<iter->user._username()<<','
+                <<iter->user._password()<<','<<iter->user._phoneNumber()<<','
                 <<iter->user._address()<<','<<iter->user._balance()<<','
                 <<iter->user._userState()<<'\n';
         iter = iter->next;

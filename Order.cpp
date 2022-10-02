@@ -26,7 +26,7 @@ void Order::print_info() {
         <<setiosflags(ios::left)<<setw(12)<<unitPrice
         <<setiosflags(ios::left)<<setw(8)<<number
         <<setiosflags(ios::left)<<setw(12)<<date
-        <<setiosflags(ios::left)<<setw(8)<<sellerID
+        <<setiosflags(ios::left)<<setw(10)<<sellerID
         <<setiosflags(ios::left)<<setw(8)<<buyerID<<endl;
 }
 

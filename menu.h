@@ -10,6 +10,8 @@
 #include <fstream>
 #include <sstream>
 #include <cstring>
+#include <string>
+#include <ctime>
 using namespace std;
 
 Admin admin;
@@ -21,8 +23,67 @@ user_node* user_list = read_user_data(user_file_name);
 commodity_node* cd_list = read_commodity_data(commodity_file_name);
 order_node* order_list = read_order_data(order_file_name);
 
-void User_Signup(){
+int user_count = 0;
+int cd_count = 0;
+int order_count = 0;
 
+void check_time(){
+    auto iter = cd_list;
+    cout<<"Start checking..."<<endl;
+    while(iter != nullptr){
+        iter->cd.show_bid();
+        clock_t now = clock();
+        //若商品开拍时间>3min
+        if(int(now) - iter->cd._create_time() > 180 * 1000){
+            //check bid_node
+            cout<<"This commodity has auction(s)"<<endl;
+            iter->cd.check_bid();
+        }
+        iter = iter->next;
+    }
+    cout<<"Check is done."<<endl;
+}
+
+void User_Signup(){
+    string username;
+    cout<<endl;
+    cout<<"Please input username:";
+    cin>>username;
+    string password;
+    cout<<"Please input password:";
+    cin>>password;
+    cout<<"Please input new pass_word again:";
+    string verification;
+    cin>>verification;
+    while(verification != password){
+        cout<<"two passwords are not the same, please try again";
+        cin>>verification;
+    }
+    auto* temp = new user_node;
+    temp->next = nullptr;
+    cout<<"Please input your phoneNumber:";
+    string phoneNumber;
+    cin>>phoneNumber;
+    cin.ignore();
+    cout<<"Please input your address:";
+    string address;
+    getline(cin, address);
+    user_count++;
+    int id = 1000 + user_count;
+    string Uid = to_string(id);
+    Uid[0] = 'U';
+    string balance = "0.0";
+    string state = "active";
+    temp->next = nullptr;
+    temp->user = User((char*)Uid.c_str(), (char*)username.c_str(), 
+    (char*)password.c_str(), (char*)phoneNumber.c_str(), (char*)address.c_str(), (char*)balance.c_str(), (char*)state.c_str());
+    auto user_tail = user_list;
+    if(user_tail == nullptr) user_list = user_tail = temp;
+    else{
+        while(user_tail->next != nullptr) user_tail = user_tail->next;
+        user_tail->next = temp;
+    }
+    write_user_data(user_list, user_file_name);
 }
 
 void User_Login(){
@@ -38,7 +99,7 @@ void User_Login(){
     while(iter != nullptr){
         if(iter->user._username() == username && iter->user._password() == password){
             if(iter->user._userState() == "active"){
-                cout<<"Valid user!"<<endl;
+                cout<<endl<<"Log in successfully!"<<endl;
                 is_found = true;
                 iter->user.select_function();
             }
@@ -46,10 +107,19 @@ void User_Login(){
         }
         iter = iter->next;
     }
-    if(!is_found) cout<<"Invalid user..."<<endl;
+    if(!is_found) cout<<"User doesn't exist or deleted..."<<endl;
 }
 
 void main_menu(){
+    for(auto it = user_list; it != nullptr; it = it->next){
+        user_count++;
+    }
+    for(auto it = cd_list; it != nullptr; it = it->next){
+        cd_count++;
+    }
+    for(auto it = order_list; it != nullptr; it = it->next){
+        order_count++;
+    }
     cout<<"======================================================="<<endl;
     cout<<"1.Administrator Login 2.User Signup 3.User Login 4.Quit"<<endl;
     cout<<"======================================================="<<endl;
@@ -58,10 +128,11 @@ void main_menu(){
     string command;
     cin>>command;
     while(command != "4"){
-        if(command == "1") admin.admin_login();
-        else if(command == "2") cout<<"User Signup"<<endl<<endl; //用户注册
+        if(command == "1") admin.admin_login(); //管理员登�?
+        else if(command == "2") User_Signup(); //用户注册
         else if(command == "3") User_Login(); //用户登录
-        else cout<<"Unknown command, please try again..."<<endl<<endl; //未识别命令
+        else cout<<"Unknown command, please try again..."<<endl<<endl; //�?识别命令
+        check_time();
         cout<<"======================================================="<<endl;
         cout<<"1.Administrator Login 2.User Signup 3.User Login 4.Quit"<<endl;
         cout<<"======================================================="<<endl;

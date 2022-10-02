@@ -28,7 +28,7 @@ void Admin::admin_menu() {
         else if(command == "3") off_shelf_commodity();
         else if(command == "4") show_all_orders();
         else if(command == "5") show_all_users();
-        else if(command == "6") cout<<"block_user"<<endl<<endl;
+        else if(command == "6") block_user();
         else cout<<"Unknown command, please try again..."<<endl<<endl;
         cout<<"========================================================================================================================"<<endl;
         cout<<"1.show_all_commodities 2.search_commodity 3.off_shelf_commodity 4.show_all_orders 5.show_all_users 6.block_user 7.logout"<<endl;
@@ -53,6 +53,7 @@ void Admin::show_all_commodities() {
         <<setiosflags(ios::left)<<setw(15)<<"state"<<endl;
     while(iter != nullptr){
         iter->cd.print_info();
+        iter->cd.show_bid();
         iter = iter->next;
     }
     cout<<endl;
@@ -92,16 +93,13 @@ void Admin::search_commodity() {
 void Admin::off_shelf_commodity() {
     cout<<endl;
     commodity_node* iter = cd_list;
-    cout<<"Please input the name of the commodity: ";
-    string name;
-    cin>>name;
-    cout<<"Please input the id of the commodity's seller: ";
-    string sellerID;
-    cin>>sellerID;
+    cout<<"Please input the id of the commodity: ";
+    string cID;
+    cin>>cID;
     bool is_found = false;
     int count = 0;
     while(iter != nullptr){
-        if(iter->cd.name() == name && iter->cd._sellerID() == sellerID && iter->cd._state() == "onAuction") {
+        if(iter->cd._commodityID() == cID && iter->cd._state() == "onAuction") {
             cout<<"Found the commodity!"<<endl;
             iter->cd.print_info();
             is_found = true;
@@ -109,7 +107,7 @@ void Admin::off_shelf_commodity() {
         }
         iter = iter->next;
     }
-    if(!is_found) cout<<"not found this commodity or not commodity not on auction..."<<endl;
+    if(!is_found) cout<<"not found this commodity or commodity is not on auction..."<<endl;
     else{
         cout<<"Are you sure that you want to ban this commodity?(Yes/No)"<<endl;
         string option;
@@ -118,7 +116,6 @@ void Admin::off_shelf_commodity() {
             iter->cd.change_state();
             write_cd_data(cd_list, commodity_file_name);
             cout<<"Commodity banned successfully!"<<endl;
-            read_commodity_data(commodity_file_name);
         }
         else cout<<"Commodity remains."<<endl;
     }
@@ -133,7 +130,7 @@ void Admin::show_all_orders() {
         <<setiosflags(ios::left)<<setw(12)<<"unitPrice"
         <<setiosflags(ios::left)<<setw(8)<<"number"
         <<setiosflags(ios::left)<<setw(12)<<"date"
-        <<setiosflags(ios::left)<<setw(8)<<"sellerID"
+        <<setiosflags(ios::left)<<setw(10)<<"sellerID"
         <<setiosflags(ios::left)<<setw(8)<<"buyerID"<<endl;
     while(iter != nullptr){
         iter->order.print_info();
@@ -160,10 +157,10 @@ void Admin::show_all_users() {
 void Admin::block_user() {
     cout<<endl;
     user_node* iter = user_list;
-    cout<<"Please input the name of the commodity: ";
+    cout<<"Please input the name of the user: ";
     string name;
     cin>>name;
-    cout<<"Please input the id of the commodity's seller: ";
+    cout<<"Please input the id of the user: ";
     string sellerID;
     cin>>sellerID;
     bool is_found = false;
@@ -184,7 +181,7 @@ void Admin::block_user() {
         cin>>option;
         if(option == "Yes") {
             iter->user.change_state();
-            write_cd_data(cd_list, commodity_file_name);
+            write_user_data(user_list, user_file_name);
             cout<<"User deleted successfully!"<<endl;
             read_user_data(user_file_name);
         }
