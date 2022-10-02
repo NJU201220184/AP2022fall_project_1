@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/AP_project_1/build",
+  "command": "D:\\Qt\\Tools\\mingw730_64\\bin\\c++.exe -g -o CMakeFiles\\AP_project_1.dir\\main.cpp.obj -c D:\\AP_project_1\\main.cpp",
+  "file": "D:\\AP_project_1\\main.cpp"
+},
+{
+  "directory": "D:/AP_project_1/build",
+  "command": "D:\\Qt\\Tools\\mingw730_64\\bin\\c++.exe -g -o CMakeFiles\\AP_project_1.dir\\User.cpp.obj -c D:\\AP_project_1\\User.cpp",
+  "file": "D:\\AP_project_1\\User.cpp"
+},
+{
+  "directory": "D:/AP_project_1/build",
+  "command": "D:\\Qt\\Tools\\mingw730_64\\bin\\c++.exe -g -o CMakeFiles\\AP_project_1.dir\\Admin.cpp.obj -c D:\\AP_project_1\\Admin.cpp",
+  "file": "D:\\AP_project_1\\Admin.cpp"
+},
+{
+  "directory": "D:/AP_project_1/build",
+  "command": "D:\\Qt\\Tools\\mingw730_64\\bin\\c++.exe -g -o CMakeFiles\\AP_project_1.dir\\Commodity.cpp.obj -c D:\\AP_project_1\\Commodity.cpp",
+  "file": "D:\\AP_project_1\\Commodity.cpp"
+},
+{
+  "directory": "D:/AP_project_1/build",
+  "command": "D:\\Qt\\Tools\\mingw730_64\\bin\\c++.exe -g -o CMakeFiles\\AP_project_1.dir\\Order.cpp.obj -c D:\\AP_project_1\\Order.cpp",
+  "file": "D:\\AP_project_1\\Order.cpp"
+},
+{
+  "directory": "D:/AP_project_1/build",
+  "command": "D:\\Qt\\Tools\\mingw730_64\\bin\\c++.exe -g -o CMakeFiles\\AP_project_1.dir\\File.cpp.obj -c D:\\AP_project_1\\File.cpp",
+  "file": "D:\\AP_project_1\\File.cpp"
+}
+]
